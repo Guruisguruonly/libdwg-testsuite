@@ -22,7 +22,11 @@ Visit libdwg-testsuite-x.x.tar.bz2 file.
 
 ### Install & Use libdwg-testsuite
 tar xjf libdwg-testsuite-x.x.tar.bz2
+
 cd libdwg-testsuite
+
 php test.php -g /path/to/dwg/file -x /path/to/dxf/file
+
 /path/to/dwg/file refers to a .dwg extension file created using any CAD software.
+
 /path/to/dwg/file refers to a .dxf extension file created by exporting the .dwg file as .dxf using any CAD software.
