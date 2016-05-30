@@ -29,4 +29,4 @@ php test.php -g /path/to/dwg/file -x /path/to/dxf/file
 
 /path/to/dwg/file refers to a .dwg extension file created using any CAD software.
 
-/path/to/dwg/file refers to a .dxf extension file created by exporting the .dwg file as .dxf using any CAD software.
+/path/to/dxf/file refers to a .dxf extension file created by exporting the .dwg file as .dxf using any CAD software.
