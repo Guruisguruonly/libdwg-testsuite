@@ -30,36 +30,38 @@ function ParseDxf($File,$SectionsToCheck){
 	$LineNo=0;
 	$DXF=array();
 	$handle = @fopen($File, "r");
-		while(!($Gcode==0 && $Gvalue=="EOF") && !feof($handle)){
-			getGcodeGvalue();
-			while($Gcode==0 && $Gvalue=="SECTION"){
-				do{
-					getGcodeGvalue();
-					if($Gcode==2 && in_array($Gvalue,$SectionsToCheck)){
-						switch($Gvalue){
-							case "HEADER":
-							parseHEADER();
-							break;
-							case "CLASSES":
-							parseCLASSES();
-							break;
-							case "TABLES":
-							parseTABLES();
-							break;
-							case "BLOCKS":
-							parseBLOCKS();
-							break;
-							case "ENTITIES":
-							parseENTITIES();
-							break;
-							case "OBJECTS":
-							parseOBJECTS();
-							break;
-						}
+//	echo $File."\n";
+//	return;
+	while(!($Gcode==0 && $Gvalue=="EOF") && !feof($handle)){
+		getGcodeGvalue();
+		while($Gcode==0 && $Gvalue=="SECTION"){
+			do{
+				getGcodeGvalue();
+				if($Gcode==2 && in_array($Gvalue,$SectionsToCheck)){
+					switch($Gvalue){
+						case "HEADER":
+						parseHEADER();
+						break;
+						case "CLASSES":
+						parseCLASSES();
+						break;
+						case "TABLES":
+						parseTABLES();
+						break;
+						case "BLOCKS":
+						parseBLOCKS();
+						break;
+						case "ENTITIES":
+						parseENTITIES();
+						break;
+						case "OBJECTS":
+						parseOBJECTS();
+						break;
 					}
-				}while(!($Gcode==0 && $Gvalue=="ENDSEC"));
-			}
+				}
+			}while(!($Gcode==0 && $Gvalue=="ENDSEC"));
 		}
+	}
 	fclose($handle);
 	dxfLOG(2,array($File));
 	return $DXF;

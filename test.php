@@ -92,10 +92,10 @@ if(isset($options['v'])){
 	$VerboseLevel=1;
 }
 exec("mkdir -p temp");
-exec("cp $filepathdwg temp/$filenamedwg");
-exec("dwg-dxf temp/$filenamedwg");
-exec("mv temp/$filename.dxf temp/$filename-LD.dxf");
-exec("cp $filepathdxf temp/$filenamedxf");
+exec("cp \"$filepathdwg\" \"temp/$filenamedwg\"");
+exec("dwg-dxf \"temp/$filenamedwg\"");
+exec("mv \"temp/$filename.dxf\" \"temp/$filename-LD.dxf\"");
+exec("cp \"$filepathdxf\" \"temp/$filenamedxf\"");
 $ErrorHandle = fopen("errors.log", "w");
 $Filename="temp/$filenamedxf";
 $dxfAC=ParseDxf($Filename,$SectionsToCheck);
