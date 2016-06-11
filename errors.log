@@ -1,2 +1,10 @@
 
-temp/b-LD.dxf	Line:3383	Unexpected End of File. Previous 	 with value  Testing:ENDSEC
+temp/5.dxf	Line:1980	Double Entry for 1005	 with value 15 Testing:here
+temp/5.dxf	Line:1986	Double Entry for 1005	 with value 15 Testing:here
+temp/5-LD.dxf	Line:2484	Double Entry for 70	 with value 0
+temp/5-LD.dxf	Line:2488	Double Entry for 10	 with value 0.15
+temp/5-LD.dxf	Line:2492	Double Entry for 10	 with value 0.0
+temp/5-LD.dxf	Line:2686	Double Entry for 70	 with value 0
+temp/5-LD.dxf	Line:2690	Double Entry for 10	 with value 0.5
+temp/5-LD.dxf	Line:2694	Double Entry for 10	 with value 0.0
+temp/5-LD.dxf	Line:6509	Unexpected End of File. Previous 	 with value  Testing:ENDSEC

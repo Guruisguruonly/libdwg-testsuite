@@ -29,6 +29,7 @@ function ParseDxf($File,$SectionsToCheck){
 	$Gvalue="";
 	$LineNo=0;
 	$DXF=array();
+	if (!file_exists($File)){echo "$File does not exist.\n"; exit();} 
 	$handle = @fopen($File, "r");
 //	echo $File."\n";
 //	return;
@@ -233,7 +234,13 @@ function parseBLOCKS(){
 						break;
 
 						case 102:
-						if($BlockExtGroup){ $BlockExtGroup = "";}else{ $BlockExtGroup =$Gvalue;}
+						if(isset($BlockExtGroup)){
+							if ($BlockExtGroup != ""){
+								$BlockExtGroup = "";
+							}else{
+								$BlockExtGroup =$Gvalue;
+							}
+						}
 						break;
 /*
 						case 330:

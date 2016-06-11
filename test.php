@@ -92,17 +92,22 @@ if(isset($options['v'])){
 	$VerboseLevel=1;
 }
 exec("mkdir -p temp");
+exec("rm temp/*");
 exec("cp \"$filepathdwg\" \"temp/$filenamedwg\"");
 exec("dwg-dxf \"temp/$filenamedwg\"");
-exec("mv \"temp/$filename.dxf\" \"temp/$filename-LD.dxf\"");
-exec("cp \"$filepathdxf\" \"temp/$filenamedxf\"");
+if (file_exists("temp/$filename.dxf")){
+	exec("mv \"temp/$filename.dxf\" \"temp/$filename-LD.dxf\"");
+	exec("cp \"$filepathdxf\" \"temp/$filenamedxf\"");
+}else{
+	echo "dwg-dxf was not able to create dxf file.\n";
+} 
 $ErrorHandle = fopen("errors.log", "w");
 $Filename="temp/$filenamedxf";
 $dxfAC=ParseDxf($Filename,$SectionsToCheck);
 $Filename="temp/$filename-LD.dxf";
 $dxfLD=ParseDxf($Filename,$SectionsToCheck);
 $tbl = new Console_Table();
-$tbl->setHeaders(array('Path', 'Result','Cad Value','LibDwg Value'));
+$tbl->setHeaders(array('Path', 'Result','ODA Value','LibDwg Value'));
 Compare($dxfAC,$dxfLD);
 echo $tbl->getTable();
 fclose($ErrorHandle);
